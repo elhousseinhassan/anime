@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimeVerse</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div class="logo"><img src="logojadid.png" alt=""></div>
+        <nav>
+            <select id="genre-filter">
+                <option value="">All Genres</option>
+                <option value="1">Action</option>
+                <option value="2">Adventure</option>
+                <option value="4">Comedy</option>
+                <option value="8">Drama</option>
+                <option value="10">Fantasy</option>
+                <option value="14">Horror</option>
+                <option value="22">Romance</option>
+                <option value="24">Sci-Fi</option>
+            </select>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="anime-grid">
+           
+
+
+            <div class="search-container">
+                <h3>🔍 Search Anime</h3>
+                <div class="search-box">
+                    <input type="text" id="search" placeholder="Type your anime..." />
+                    <span class="glow"></span>
+                </div>
+            </div>
+             <h2>🎯 Filter & Search</h2>
+
+            <div id="anime-container" class="grid"></div>
+            <div class="pagination">
+                <button id="prev"><i class="fa-solid fa-angles-left"></i></button>
+                <span id="page-number">1</span>
+                <button id="next"><i class="fa-solid fa-angles-right"></i></button>
+            </div>
+        </section>
+
+        <section class="carousel-section">
+            <h2>🆕 Latest Anime</h2>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn left" onclick="scrollCarousel('latest-carousel', -1)">&#10094;</button>
+                <div id="latest-carousel" class="carousel"></div>
+                <button class="carousel-btn right" onclick="scrollCarousel('latest-carousel', 1)">&#10095;</button>
+            </div>
+        </section>
+
+
+        <section class="carousel-section">
+            <h2>🏆 Best Anime</h2>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn left" onclick="scrollCarousel('best-carousel', -1)">&#10094;</button>
+                <div id="best-carousel" class="carousel"></div>
+                <button class="carousel-btn right" onclick="scrollCarousel('best-carousel', 1)">&#10095;</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 <img src="logojadid.png" alt=""></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

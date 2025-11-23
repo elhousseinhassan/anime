@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="details-container"></main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const animeId = params.get("id");
+
+    async function loadDetails() {
+      const res = await fetch(`https://api.jikan.moe/v4/anime/${animeId}/full`);
+      const data = await res.json();
+      const anime = data.data;
+
+      document.getElementById("details-container").innerHTML = `
+        <div class="details">
+          <h1>${anime.title}</h1>
+          <img src="${anime.images.jpg.image_url}" alt="${anime.title}" />
+          <h1>
+          <a href="https://www.Zoro.to.com/search?q=${anime.title}" target="_blank">Watch Now</a>
+          </h1>
+          <p><strong>Score:</strong> ${anime.score}</p>
+          <p><strong>Episodes:</strong> ${anime.episodes}</p>
+          <p><strong>Synopsis:</strong> ${anime.synopsis}</p>
+          <h2>🎬 Trailer</h2>
+          ${anime.trailer.embed_url ? `<iframe src="${anime.trailer.embed_url}" frameborder="0" allowfullscreen></iframe>` : "<p>No trailer available.</p>"}
+        </div>
+      `;
+    }
+
+    loadDetails();
+  </script>
+</body>
+</html>
